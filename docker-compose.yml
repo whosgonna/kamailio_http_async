@@ -1,0 +1,20 @@
+services:
+
+    kamailio:
+      build: ./kamailio
+      command: -de -n 2
+      volumes:
+        - ./kamailio:/etc/kamailio
+
+    sipp:
+      build: ./kamailio
+      entrypoint: sh
+      working_dir: /sipp
+      tty: true
+      stop_signal: SIGKILL
+      volumes:
+        - ./sipp:/sipp
+
+    www:
+      image: deminy/delayed-http-response
+

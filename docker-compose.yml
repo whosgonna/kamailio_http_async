@@ -2,7 +2,7 @@ services:
 
     kamailio:
       build: ./kamailio
-      command: -de -n 2
+      command: -de -n 2 -m 1024
       volumes:
         - ./kamailio:/etc/kamailio
 

@@ -64,7 +64,7 @@ docker compose logs -f kamailio
 ### Testing
 From the root of the project, the `sipp` container can be used for loadtesting:
 ```
-docker compose exec sipp sipp -sf uac_expect_404.xml -m 18000 -r 300 kamailio
+docker compose exec sipp sipp -sf uac_expect_300.xml -m 18000 -r 300 kamailio
 ```
 
 This will send a total of 18,000 "calls" (`-m 18000`) at a rate of 300

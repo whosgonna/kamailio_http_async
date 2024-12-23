@@ -1,5 +1,6 @@
-FROM alpine:3.19
+FROM alpine:3.20
 
+#ADD https://github.com/miconda/sipexer/releases/download/v1.1.0/sipexer-v1.1.0-linux-amd64.tar.gz /usr/bin/sipexer
 ADD https://github.com/miconda/sipexer/releases/download/v1.1.0/sipexer-v1.1.0-linux-amd64.tar.gz /usr/bin/sipexer
 
 RUN    wget -O /etc/apk/keys/whosgonna_`uname -m`.rsa.pub https://packagecloud.io/whosgonna/`uname -m`/rsakey \
@@ -9,5 +10,6 @@ RUN    wget -O /etc/apk/keys/whosgonna_`uname -m`.rsa.pub https://packagecloud.i
                           kamailio-http_async kamailio-utils sipp sngrep \
     && chmod 755 /usr/bin/sipexer
 
+ENV TERM=screen
 ENTRYPOINT ["kamailio", "-dDDE"]
 
